@@ -76,25 +76,31 @@ function renderTable() {
     tableBody.innerHTML = '';
 
     const datas = [
-        { month: 'Enero', value: -1 },
-        { month: 'Febrero', value: -1 },
-        { month: 'Marzo', value: -1 },
-        { month: 'Abril', value: -1 },
-        { month: 'Mayo', value: -1 },
-        { month: 'Junio', value: -1 },
-        { month: 'Julio', value: -1 },
-        { month: 'Agosto', value: -1 },
-        { month: 'Septiembre', value: -1 },
-        { month: 'Octubre', value: -1 },
-        { month: 'Noviembre', value: -1 },
-        { month: 'Diciembre', value: -1 },
+        { month: 'Enero', value: null },
+        { month: 'Febrero', value: null },
+        { month: 'Marzo', value: null },
+        { month: 'Abril', value: null },
+        { month: 'Mayo', value: null },
+        { month: 'Junio', value: null },
+        { month: 'Julio', value: null },
+        { month: 'Agosto', value: null },
+        { month: 'Septiembre', value: null },
+        { month: 'Octubre', value: null },
+        { month: 'Noviembre', value: null },
+        { month: 'Diciembre', value: null },
     ];
 
 
 
     if (datas.length === info.length) {
         for (let x = 0; x < info.length; x++) {
-            datas[x].value = info[x];
+
+            if(info[x]!=-Infinity){
+                datas[x].value = info[x];
+            }else{
+                datas[x].value ="No datos";
+            }
+           
         }
     } else {
         console.log('Los arreglos no tienen la misma longitud');
