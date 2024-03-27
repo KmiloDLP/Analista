@@ -21,13 +21,12 @@ function openData() {
             for (const line of lines) {
                 const values = line.split(',');
                 const date = values[0];
-                const hour = values[1];
-                const value = parseFloat(values[2]);
-                const year = parseInt(values[3]);
-                const month = parseInt(values[4]);
+                const value = parseFloat(values[1]);
+                const year = parseInt(values[2]);
+                const month = parseInt(values[3]);
 
                 if (!isNaN(value) && !isNaN(year) && !isNaN(month)) {
-                    data.push(new Datos(date, hour, value, year, month));
+                    data.push(new Datos(date,value, year, month));
                 }
             }
 
@@ -40,9 +39,8 @@ function openData() {
 }
 
 class Datos {
-    constructor(date, hour, value, year, month) {
+    constructor(date, value, year, month) {
         this.date = date;
-        this.hour = hour;
         this.value = value;
         this.year = year;
         this.month = month;
